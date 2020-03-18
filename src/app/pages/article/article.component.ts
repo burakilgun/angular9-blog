@@ -19,11 +19,13 @@ export class ArticleComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.articleService.loading = true;
-      let id = params.get("id");
-      this.articleService.getArticleById(Number(id)).subscribe(resp => {
+      let id = Number(params.get("id"));
+      this.articleService.getArticleById(id).subscribe(resp => {
         this.article = resp;
         this.category = resp.category;
-      })
+      });
+
+      this.articleService.articleViewCountUp(id).subscribe();
     });
   }
 
