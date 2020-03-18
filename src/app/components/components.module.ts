@@ -7,6 +7,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ArticlesComponent } from './articles/articles.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { UrlFormatPipe } from '../pipes/url-format.pipe';
+import { MenuArticleMostViewComponent } from './menu-article-most-view/menu-article-most-view.component';
+import { MenuArchiveComponent } from './menu-archive/menu-archive.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { UrlFormatPipe } from '../pipes/url-format.pipe';
     PageTitleComponent,
     ArticlesComponent,
     UrlFormatPipe,
+    MenuArticleMostViewComponent,
+    MenuArchiveComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +27,8 @@ import { UrlFormatPipe } from '../pipes/url-format.pipe';
   ],
   exports: [
     MenuCategoryComponent,
+    MenuArticleMostViewComponent,
+    MenuArchiveComponent,
     PageTitleComponent,
     ArticlesComponent,
     UrlFormatPipe

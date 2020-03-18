@@ -14,6 +14,7 @@ import { MainLayoutComponent } from '../layout/main-layout/main-layout.component
 import { ArticleComponent } from './article/article.component';
 import { CategoryArticlesComponent } from './category-articles/category-articles.component';
 import { SearchComponent } from './search/search.component';
+import { ArchiveComponent } from './archive/archive.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SearchComponent } from './search/search.component';
     MainLayoutComponent,
     ArticleComponent,
     CategoryArticlesComponent,
-    SearchComponent
+    SearchComponent,
+    ArchiveComponent
   ],
   imports: [
     CommonModule,

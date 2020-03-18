@@ -1,0 +1,23 @@
+<div class="card mt-2">
+    <div class="card-header">
+      En Çok Okunanlar
+    </div>
+    <div class="card-body">
+  
+      <div class="d-flex justify-content-center" *ngIf="articles.length == 0">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+  
+      <ul class="list-group">
+        <li *ngFor="let article of articles" class="list-group-item">
+          <a [routerLink]="['/makale',article.title | urlFormat,article.id]">
+            <i class="fas fa-arrow-circle-right"></i>
+            {{article.title}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
