@@ -13,6 +13,10 @@ export class ArticleService {
   private apiUrl: string = "http://localhost:5000/api/articles";
   constructor(private httpClient: HttpClient) { }
 
+  getArticlesWithoutPg() {
+    return this.httpClient.get<Article[]>(this.apiUrl);
+  }
+
   getArticles(page: number, pageSize: number) {
     let api = `${this.apiUrl}/${page}/${pageSize}`;
     return this.httpClient.get<ArticlePg>(api).pipe(
@@ -59,7 +63,7 @@ export class ArticleService {
     return this.httpClient.get<Archive[]>(api);
   }
 
-  getArticlesArchiveList(year: number, month: number, page: number, pageSize: number){
+  getArticlesArchiveList(year: number, month: number, page: number, pageSize: number) {
     let api = `${this.apiUrl}/GetArticleArchiveList/${year}/${month}/${page}/${pageSize}`;
     return this.httpClient.get<ArticlePg>(api).pipe(
       tap(x => {
@@ -68,7 +72,7 @@ export class ArticleService {
     );
   }
 
-  articleViewCountUp(id:number){
+  articleViewCountUp(id: number) {
     let api = `${this.apiUrl}/ArticleViewCountUp/${id}`;
     return this.httpClient.get(api);
   }
