@@ -6,7 +6,6 @@ import { Category } from '../models/castegory';
 })
 export class CategoryService {
   private apiUrl: string = "http://localhost:5000/api/categories";
-  categories: Category[];
   constructor(private httpClient: HttpClient) { }
 
   public getCategories() {

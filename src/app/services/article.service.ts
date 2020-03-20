@@ -17,6 +17,14 @@ export class ArticleService {
     return this.httpClient.get<Article[]>(this.apiUrl);
   }
 
+  saveArticlePicture(image) {
+    return this.httpClient.post<any>(`${this.apiUrl}/SaveArticlePicture`, image);
+  }
+
+  addArticle(article: Article) {
+    return this.httpClient.post(`${this.apiUrl}`, article);
+  }
+
   getArticles(page: number, pageSize: number) {
     let api = `${this.apiUrl}/${page}/${pageSize}`;
     return this.httpClient.get<ArticlePg>(api).pipe(
