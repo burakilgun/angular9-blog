@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-container">
+                <h3 class="login-title">Admin Panel Giriş</h3>
+                <mat-form-field>
+                  <input matInput placeholder="Email" #emailInput>
+                </mat-form-field>
+                <br>
+                <mat-form-field>
+                  <input matInput placeholder="Şifre" #passwordPassword>
+                </mat-form-field>
+                <br>
+                <button mat-raised-button color="primary" (click)="login(emailInput.value,passwordPassword.value)">Giriş</button>
+              </div>              
+        </div>
+    </div>
+</div>

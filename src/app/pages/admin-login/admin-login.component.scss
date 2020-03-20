@@ -1,0 +1,23 @@
+.form-container {
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    padding: 30px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container>div {
+    width: 100% !important;
+  }
+  
+  .form-container button {
+    width: fit-content;
+  }
+  
+  .login-title{
+      font-size: 30px;
+      text-align: center;
+  }

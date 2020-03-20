@@ -14,6 +14,8 @@ import { ArticleListComponent } from './admin-pages/article/article-list/article
 import { ArticleAddComponent } from './admin-pages/article/article-add/article-add.component';
 import { ArticleUpdateComponent } from './admin-pages/article/article-update/article-update.component';
 import { ArticleComponent } from './pages/article/article.component';
+import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
+import { AuthGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
@@ -60,12 +62,17 @@ const routes: Routes = [
       {
         path: "iletisim",
         component: ContactComponent
+      },
+      {
+        path: "login",
+        component: AdminLoginComponent
       }
     ]
   },
   {
     path: "admin",
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: "",
