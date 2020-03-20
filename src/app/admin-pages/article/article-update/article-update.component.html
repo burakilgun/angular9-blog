@@ -1,1 +1,90 @@
-<p>article-update works!</p>
+<div class="row" *ngIf="!isDataLoad">
+  <div class="col-md-12">
+    <div class="card bg-light" style="height: 500px;">
+      <div class="card-body text-center">
+          <h3>Makale Yükleniyor..</h3>
+        <div class="spinner-grow text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="isDataLoad">
+  <div class="col-md-9">
+    <form (ngSubmit)="onSubmit()" [formGroup]="articleForm" >
+      <div class="form-container">
+        <mat-form-field>
+          <input type="text" placeholder="Kategori seçiniz.." formControlName="category" matInput
+            [matAutocomplete]="auto" />
+          <mat-error *ngIf="getControls.category.invalid">
+            {{validationService.getValidationMessages(getControls.category,"Kategori")}}
+          </mat-error>
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayCategoryName">
+            <mat-option *ngFor="let category of categories" [value]="category">
+              {{category.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="text" formControlName="title" matInput placeholder="Makale ismi.." />
+          <mat-error *ngIf="getControls.title.invalid">
+            {{validationService.getValidationMessages(getControls.title,"Makale ismi")}}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="text" formControlName="contentSummary" matInput placeholder="Makale özet.." />
+          <mat-error *ngIf="getControls.contentSummary.invalid">
+            {{validationService.getValidationMessages(getControls.contentSummary,"Makale özet")}}
+          </mat-error>
+        </mat-form-field>
+
+        <div class="editor">
+          <ckeditor formControlName="contentMain" [editor]="editor" (ready)="onReady($event)"></ckeditor>
+        </div>
+
+      </div>
+      <button type="submit" [disabled]="loading" mat-raised-button color="primary">
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="loading"></span>
+        Kaydet
+      </button>
+    </form>
+    <div *ngIf="info!=null" class="alert alert-danger">{{info}}</div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-white bg-primary">
+      <div class="card-header">Makale Resim</div>
+      <div class="card-body">
+        <img [src]="uploadFilePath || 'assets/article-empty.jpg'" class="img-thumbnail" />
+      </div>
+      <div class="card-footer">
+        <input type="file" class="form-control" name="image" (change)="upload($event)" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -25,6 +25,14 @@ export class ArticleService {
     return this.httpClient.post(`${this.apiUrl}`, article);
   }
 
+  updateArticle(id: number, article: Article) {
+    return this.httpClient.put<any>(`${this.apiUrl}/${id}`, article);
+  }
+
+  deleteArticle(id: number) {
+    return this.httpClient.delete<any>(`${this.apiUrl}/${id}`);
+  }
+
   getArticles(page: number, pageSize: number) {
     let api = `${this.apiUrl}/${page}/${pageSize}`;
     return this.httpClient.get<ArticlePg>(api).pipe(

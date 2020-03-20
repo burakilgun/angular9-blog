@@ -1,0 +1,22 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container>div {
+    width: 100% !important;
+  }
+  
+  .form-container button {
+    width: fit-content;
+  }
+  
+  .editor {
+    margin-bottom: 5px;
+  }
+  
+  :host ::ng-deep .ck-editor__editable_inline {
+    min-height: 300px;
+    border:1px solid #ccc;
+  }
+  
