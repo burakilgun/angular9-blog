@@ -4,13 +4,13 @@ import { ArticlePg } from '../models/article-pg';
 import { tap } from 'rxjs/operators';
 import { Article } from '../models/article';
 import { Archive } from '../models/archive';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleService {
   public loading: boolean = true;
-  private apiUrl: string = "http://localhost:5000/api/articles";
+  private apiUrl: string = `${environment.baseUrl}/articles`;
   constructor(private httpClient: HttpClient) { }
 
   getArticlesWithoutPg() {

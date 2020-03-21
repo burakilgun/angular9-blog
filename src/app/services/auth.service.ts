@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl: string = "http://localhost:5000/api/auth";
+  private apiUrl: string = `${environment.baseUrl}/auth`;
   constructor(private httpClient: HttpClient) { }
 
   isAuthenticated(email: string, password: string) {

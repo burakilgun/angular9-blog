@@ -38,6 +38,7 @@ import { CommentListComponent } from './comment-list/comment-list.component';
     PageTitleComponent,
     ArticlesComponent,
     AddCommentComponent,
+    CommentListComponent,
     UrlFormatPipe
   ]
 })
