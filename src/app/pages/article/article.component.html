@@ -28,7 +28,6 @@
   </div>
 </div>
 
-
 <div class="card border-primary" *ngIf="!articleService.loading">
   <div class="card-header">
     <h3>
@@ -54,5 +53,16 @@
   </div>
   <div class="card-body">
     <div class="ck ck-content" [innerHtml]="article.contentMain"></div>
+  </div>
+</div>
+
+<div class="card bg-light mt-3">
+  <div class="card-header">
+    <h2 class="header-text">
+      Yorumlar
+    </h2>
+  </div>
+  <div class="card-body">
+    <app-add-comment></app-add-comment>
   </div>
 </div>

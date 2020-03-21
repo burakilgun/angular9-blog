@@ -9,6 +9,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UrlFormatPipe } from '../pipes/url-format.pipe';
 import { MenuArticleMostViewComponent } from './menu-article-most-view/menu-article-most-view.component';
 import { MenuArchiveComponent } from './menu-archive/menu-archive.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
+import { MaterialModule } from '../modules/material/material.module';
+import { CommentListComponent } from './comment-list/comment-list.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +21,15 @@ import { MenuArchiveComponent } from './menu-archive/menu-archive.component';
     UrlFormatPipe,
     MenuArticleMostViewComponent,
     MenuArchiveComponent,
+    AddCommentComponent,
+    CommentListComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MaterialModule
   ],
   exports: [
     MenuCategoryComponent,
@@ -31,6 +37,7 @@ import { MenuArchiveComponent } from './menu-archive/menu-archive.component';
     MenuArchiveComponent,
     PageTitleComponent,
     ArticlesComponent,
+    AddCommentComponent,
     UrlFormatPipe
   ]
 })
